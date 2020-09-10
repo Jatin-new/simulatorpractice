@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alingment</title>
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .container {
+        width: 1514px;
+        border: 3px solid black;
+        margin: 33px auto;
+        background: rgb(159, 159, 238);
+        display: inline-block;
+
+    }
+
+    .items {
+        border: 3px solid black;
+        width: 50%;
+        height: 600px;
+        margin: 12px 3px;
+        padding: 12px 3px;
+        background: rgb(235, 200, 103);
+        display: block;
+
+    }
+
+    .item {
+        border: 3px solid black;
+        width: 50%;
+        height: 600px;
+        margin: 12px 3px;
+        padding: 0px 0px;
+        background: rgb(235, 200, 103);
+        display: block;
+    }
+
+    #ReadingBox {
+        float: left;
+        width: 49%;
+        display: block;
+
+    }
+
+    #Simulatorimg {
+        /* visibility: hidden; */
+        float: right;
+        width: 49%;
+        display: block;
+    }
+
+    #Readingtable {
+        float: left;
+        width: 100%;
+        clear: both;
+
+
+    }
+
+
+    h3 {
+        text-align-last: center;
+        font-size: 38px;
+        font-style: italic;
+        border: rgb(0, 0, 0) solid 4px;
+
+    }
+
+    h1 {
+        background: rgb(233, 233, 51);
+        margin: 12px 10px;
+        text-align: center;
+        border: 3px solid black;
+        border-radius: 6px;
+        padding: 10px 10px;
+    }
+
+    .btn {
+        background: rgb(233, 77, 108);
+        padding: 4px;
+        border: 4px solid black;
+
+        cursor: pointer;
+        font-size: medium;
+        border-radius: 8px;
+    }
+
+    #sml {
+        width: 735px;
+        height: 593px;
+
+    }
+
+    #sml1 {
+        width: 735px;
+        height: 593px;
+        display: none;
+
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background: none;
+        font-family: sans-serif;
+        display: block;
+    }
+
+    .main {
+        width: 95%;
+        margin: 15% auto;
+        position: relative;
+    }
+
+    #slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 7px;
+        border-style: solid;
+        border-color: blue;
+        outline: none;
+        border-radius: 3px;
+    }
+
+    #slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 3;
+        position: relative;
+    }
+
+    #selector {
+        height: 104px;
+        width: 48px;
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 2;
+    }
+
+    .selectbtn {
+        height: 48px;
+        width: 48px;
+        background-color: aqua;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+    }
+
+    #selectvalue {
+        width: 48px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        background: rgb(24, 151, 201);
+        border-radius: 4px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #selectvalue::after {
+        content: '';
+        border-top: 17px solid rgb(24, 151, 201);
+        border-left: 24px solid #000;
+        border-right: 24px solid #000;
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+
+    }
+
+    #progressbar {
+        width: 50%;
+        height: 7px;
+        background: rgb(24, 151, 201);
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+    }
+
+
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 18px;
+        font-style: italic;
+        text-align: center;
+
+
+    }
+
+    th {
+        background: rgb(11, 91, 172);
+        color: white;
+    }
+
+    th,
+    td {
+        border: 2px solid black;
+        padding: 10px;
+    }
+
+    #select1 {
+        width: auto;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h1>Calibration of voltmeter and ammeter by potentiometer</h1>
+        <div id="ReadingBox" class="items">
+            <h3>ReadingBox</h3>
+
+            <button class="btn" onclick="change1()">Appartus Shown</button> <br>
+
+            <br>
+            <button class="btn" onclick="change2()">Circuit Connected</button> <br>
+
+            <!-- <button class="btn" id="option" onclick="amm1()">Ammeter Reading</button> <br> -->
+            <form action="">
+                <h3>Ammeter Reading</h3>
+                <br>
+                <select name="Ammeter Reading" id="sl1">
+                    <option value="0.2">0.2</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.8">0.8</option>
+                    <option value="1.0">1.0</option>
+                </select> <br>
+
+                <br>
+                <!-- <button class="btn">Voltmeter Reading</button><br> -->
+                <h3>Voltmeter Reading</h3>
+
+                <br>
+                <select name="voltmeter Reading" id="sl2">
+                    <option value="0.2">0.2</option>
+                    <option value="0.4">0.4</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.8">0.8</option>
+                    <option value="1.0">1.0</option>
+                </select>
+
+                <br>
+                 <button class="btn" id="option" onclick="myfunction()">Submit Reading</button> <br> 
+                <h3>Potentiometer Reading</h3>
+                <br>
+                <div class="main">
+                    <input type="range" min="0" max="100" value="50" id="slider">
+                    <div id="selector">
+                        <div class="selectbtn"></div>
+                        <div id="selectvalue"></div>
+                    </div>
+                    <div id="progressbar"></div>
+                </div>
+
+                <script>
+                    var slider = document.getElementById("slider");
+                    var selector = document.getElementById("selector");
+                    var selectvalue = document.getElementById("selectvalue");
+                    var progressbar = document.getElementById("progressbar");
+
+                    selectvalue.innerHTML = slider.value;
+
+                    slider.oninput = function () {
+                        selector.style.left = this.value + "%";
+                        progressbar.style.width = this.value + "%";
+                        selectvalue.innerHTML = this.value;
+                    }
+
+                </script>
+         <button class="btn" id="option" onclick="">Submit Reading</button> <br>
+        </div>
+        
+        </form>
+        <div id="Simulatorimg" class="item">
+
+
+        </div>
+        <div id="Readingtable" class="items">
+            <h3>Reading Table</h3>
+            <table id="myTable">
+
+                <tr>
+                    <th>S.No.</th>
+                    <th>Voltmeter Reading <br> V (volts) (a)</th>
+                    <th>Ammeter Reading <br> I (Amps.) (b)</th>
+                    <th>Balancing length of the <br>potentiometer wire from zero end <br> A (l <sub>2</sub>) in cm
+                    </th>
+                    <th>Corresponding value of voltage and current obtained by <br>potentiometer when R=1 OHM <br>
+                        V'=I'=Kl <sub>2</sub></th>
+                    <th>Error in Voltmeter reading <br> V'-V (volts) <br> (c-a)</th>
+                    <th>Error in Ammeter reading <br> I'-I (Amp.) <br> (c-b)</th>
+                </tr>
+                <tr>
+                        <td> 1.</td>
+                        <td> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        function change1() {
+            document.getElementById("Simulatorimg").innerHTML = '<img  width="735px" height="593px" src="../css/VIVEKLAB-Layout1 (2).jpg" alt="Not visible">'
+        }
+        function change2() {
+            document.getElementById("Simulatorimg").innerHTML = '<img  width="735px" height="593px" src="../css/VIVEKLABCONNECTED-Layout1 (2).jpg" alt="Not visible">'
+        }
+        
+
+    </script>
+</body>
+
+</html>
